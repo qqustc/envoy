@@ -84,6 +84,12 @@ INSTANTIATE_TEST_SUITE_P(IpVersions, UdpProxyIntegrationTest,
                          testing::ValuesIn(TestEnvironment::getIpVersionsForTest()),
                          TestUtility::ipTestParamsToString);
 
+// fixfix
+TEST_P(UdpProxyIntegrationTest, NoReusePort) {
+  concurrency_ = 2;
+  setup(1);
+}
+
 // Basic loopback test.
 TEST_P(UdpProxyIntegrationTest, HelloWorldOnLoopback) {
   setup(1);
